@@ -1,3 +1,3 @@
 # gTestExample
  googleTest Example files
- command in terminal: git clone https://github.com/google/googletest.git
+ how to get googleTest -> command in terminal: `git clone https://github.com/google/googletest.git`
