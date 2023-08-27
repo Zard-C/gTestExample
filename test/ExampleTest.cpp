@@ -1,7 +1,6 @@
-#include "../Example.hpp" //想要包含Example.hpp 头文件，需注意目录结构
+#include "Example.hpp" 
 #include <gtest/gtest.h> 
 
-// 要继承Test这个类，override关键字表示覆盖了基类中的方法
 struct Foo:
     public ::testing::Test
 {
@@ -19,10 +18,8 @@ struct Foo:
 };
 
 
-// 全局变量
 int sideEffect = 42;
 
-// 有副作用的函数: 修改了全局变量真的值
 bool f()
 {
     sideEffect = 16; 

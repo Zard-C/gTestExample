@@ -1,31 +1,12 @@
-# test 文件夹的构建规则
-
-# 最低cmake 版本要求
 cmake_minimum_required(VERSION 3.9)
 
-# 定义This 变量 值为ExampleTest
-set(This ExmapleTest)
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
-# 定义Sources 变量 值为ExampleTest.cpp 
-set (Sources 
-    ExampleTest.cpp
-)
+add_executable(${PROJECT_NAME}_test ${PROJECT_SOURCE_DIR}/test/Exampletest.cpp ${PROJECT_SOURCE_DIR}/src/Example.cpp)
 
-# 给工程设置名称
-project(${This} C CXX)
-
-# 相当于 g++ ${Sources} -o ${This} 
-add_executable(${This} ${Sources})
-
-# 指定链接库， 参数都是库的名称
-target_link_libraries(${This} PUBLIC 
-    gtest_main
-    Example
-)
-
-# 添加一个测试
-add_test(
-    NAME ${This}
-    COMMAND ${This}
+target_link_libraries(${PROJECT_NAME}_test PUBLIC   
+    gtest
+    gtest_main #since we didn't define main in our test file
+    pthread
 )
 
